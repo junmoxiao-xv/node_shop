@@ -15,6 +15,9 @@ var contactRouter = require('./routes/contact');
 var shopsingleRouter = require('./routes/shopsingle');
 var shopRouter = require('./routes/shop');
 var thankyouRouter = require('./routes/thankyou');
+var backstageRouter = require('./routes/backstage');
+var table1 = require('./routes/table1');
+var table2 = require('./routes/table2');
 
 var User = require('./routes/bean/user');
 const { Router } = require('express');
@@ -48,6 +51,9 @@ app.use('/contact', contactRouter);
 app.use('/shopsingle', shopsingleRouter);
 app.use('/shop', shopRouter);
 app.use('/thankyou', thankyouRouter);
+app.use('/backstage', backstageRouter);
+app.use('/table1', table1);
+app.use('/table2', table2);
 
 
 // catch 404 and forward to error handler
