@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/backstage.css">
+    <script src="/javascripts/jq.js"></script>
 </head>
 <body>
     <div>
@@ -32,8 +33,8 @@
                 <td>操作</td>
             </tr>
             <% for(var i = 0 ;i < list.length; i++){ %>
-            <tr>
-                <td><img src=<%=list[i].product_img %> ></td>
+            <tr datakey = <%=list[i].id %> >
+                <td class="img"><img src=<%=list[i].product_img %> ></td>
                 <td><%=list[i].product_name %></td>
                 <td><%=list[i].category_name %></td>
                 <td><%=list[i].details %></td>
@@ -42,12 +43,13 @@
                 <td><%=list[i].inventory %></td>
                 <td><%=list[i].create_time %></td>
                 <td>
-                    <button>编辑</button>
-                    <button>删除</button>
+                    <button class="cha">编辑</button>
+                    <button class="del">删除</button>
                 </td>
             </tr>
             <%} %>
         </table>
     </div>
+    <script src="/javascripts/product.js"></script>
 </body>
 </html>
