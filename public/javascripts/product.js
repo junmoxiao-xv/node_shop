@@ -12,3 +12,7 @@ $(function(){
             });
         });
 });
+
+$("#add").click(function(){
+	window.location.href='/table1/addpage';
+});

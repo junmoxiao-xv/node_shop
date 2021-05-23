@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+    <form action="/table1/add" method="POST">
+        <div class="form-group">
+          <label>商品名称</label>
+          <p><input type="text" name="product_name" ></p>
+        </div>
+        <div class="form-group">
+            <label>分类名称</label>
+            <p>
+                <input type="text" name="category_name" list="category" autocomplete="off">
+                <datalist id="category">
+                    <option>白玫瑰</option>
+                    <option>红玫瑰</option>
+                    <option>香槟玫瑰</option>
+                    <option>粉色玫瑰</option>
+                </datalist>
+            </p>
+        </div>
+        <div class="form-group">
+            <label>详情</label>
+            <p><input type="text" name="details" ></p>
+        </div>
+        <div class="form-group">
+            <label>价格</label>
+            <p><input type="number" name="price"></p>
+        </div>
+        <div class="form-group">
+            <label>销量</label>
+            <p><input type="number" name="sales_count"></p>
+        </div>
+        <div class="form-group">
+            <label>库存</label>
+            <p><input type="number" name="inventory"></p>
+        </div>
+        <div class="form-group">
+          <p><input type="file" id="exampleInputFile"></p>
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+      </form>
+</body>
+</html>

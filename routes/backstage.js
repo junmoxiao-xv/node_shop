@@ -6,5 +6,4 @@ router.get('/', function(req, res) {
   res.render('backstage');
 });
 
-
 module.exports = router;
