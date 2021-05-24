@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,22 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <script src="/javascripts/jq.js"></script>
 </head>
+
 <body>
     <form action="/table1/cha" method="POST">
+        <div class="form-group">
+            <label>商品id</label>
+            <p><input type="text" name="id" value="<%=obj.id %>" class="form-input" readonly unselectable='on'></p>
+        </div>
         <div class="form-group" id="pid" datakey="<%=obj.id %>">
-          <label>商品名称</label>
-          <p><input type="text" name="product_name" value="<%=obj.product_name %>" readonly unselectable='on'></p>
+            <label>商品名称</label>
+            <p><input type="text" name="product_name" value="<%=obj.product_name %>"></p>
         </div>
         <div class="form-group">
             <label>分类名称</label>
             <p>
-                <input type="text" name="category_name" list="category" autocomplete="off" value="<%=obj.category_name %>">
+                <input type="text" name="category_name" list="category" autocomplete="off"
+                    value="<%=obj.category_name %>">
                 <datalist id="category">
                     <option>白玫瑰</option>
                     <option>红玫瑰</option>
@@ -43,10 +50,11 @@
             <p><input type="number" name="inventory" value="<%=obj.inventory %>" class="form-input"></p>
         </div>
         <div class="form-group">
-          <p><input type="file" id="exampleInputFile"></p>
+            <p><input type="file" id="exampleInputFile"></p>
         </div>
         <button type="submit" class="btn btn-default" id="submit_cha">提交</button>
-      </form>
-      <script src="/javascripts/product.js"></script>
+    </form>
+    <script src="/javascripts/product.js"></script>
 </body>
+
 </html>
