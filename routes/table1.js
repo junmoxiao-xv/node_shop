@@ -24,7 +24,6 @@ router.delete('/del/:id', (req, res) => {
     if (err) {
       console.log(err.message);
     } else {
-      delete data[req.params.id];
       connection.query(show_sql, (err, result, fields) => {
         if (err) {
           console.log(err.message);
@@ -72,6 +71,53 @@ router.post('/add', (req, res) => {
     }
   });
 });
+
+router.get('/chapage/:id', (req, res) => {
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].id == req.params.id) {
+      res.render('cha', {
+        obj: data[i]
+      });
+    }
+  }
+});
+
+router.post('/cha',(req,res) => {
+  connection.query('SELECT id FROM product WHERE product_name=?', [req.body.product_name], (err, result, fields) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      let product_id = JSON.parse(JSON.stringify(result));
+      connection.query('SELECT id FROM classify WHERE category_name=?', [req.body.category_name], (err, result, fields) => {
+        if (err) {
+          console.log(err.message);
+        } else {
+          let classify_id = JSON.parse(JSON.stringify(result));
+          connection.query('UPDATE product SET product.classify_id=?,product.details=?,product.price=?,product.sales_count=? WHERE product.id=?', [classify_id[0].id, req.body.details, req.body.price, req.body.sales_count, product_id[0].id], (err, result, fields) => {
+            if (err) {
+              console.log(err.message);
+            } else{
+              connection.query('SELECT id FROM inventory WHERE product_id=' + product_id[0].id, (err, result, fields) => {
+                if (err) {
+                  console.log(err.message);
+                } else{
+                  inventory_id = JSON.parse(JSON.stringify(result));
+                  connection.query('UPDATE inventory SET product_id=?,inventory=? WHERE inventory.id=?',[product_id[0].id,req.body.inventory,inventory_id[0].id],(err, result, fields) => {
+                    if (err) {
+                      console.log('c', err.message);
+                    } else {
+                      res.redirect('/table1');
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      })
+    }
+  })
+})
 
 
 module.exports = router;

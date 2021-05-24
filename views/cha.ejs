@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新增</title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/jq.js"></script>
 </head>
 <body>
-    <form action="/table1/add" method="POST">
-        <div class="form-group">
+    <form action="/table1/cha" method="POST">
+        <div class="form-group" id="pid" datakey="<%=obj.id %>">
           <label>商品名称</label>
-          <p><input type="text" name="product_name" ></p>
+          <p><input type="text" name="product_name" value="<%=obj.product_name %>" readonly unselectable='on'></p>
         </div>
         <div class="form-group">
             <label>分类名称</label>
             <p>
-                <input type="text" name="category_name" list="category" autocomplete="off" value="">
+                <input type="text" name="category_name" list="category" autocomplete="off" value="<%=obj.category_name %>">
                 <datalist id="category">
                     <option>白玫瑰</option>
                     <option>红玫瑰</option>
@@ -27,24 +28,25 @@
         </div>
         <div class="form-group">
             <label>详情</label>
-            <p><input type="text" name="details" ></p>
+            <p><input type="text" name="details" value="<%=obj.details %>" class="form-input"></p>
         </div>
         <div class="form-group">
             <label>价格</label>
-            <p><input type="number" name="price"></p>
+            <p><input type="number" name="price" value="<%=obj.price %>" class="form-input"></p>
         </div>
         <div class="form-group">
             <label>销量</label>
-            <p><input type="number" name="sales_count"></p>
+            <p><input type="number" name="sales_count" value="<%=obj.sales_count %>" class="form-input"></p>
         </div>
         <div class="form-group">
             <label>库存</label>
-            <p><input type="number" name="inventory"></p>
+            <p><input type="number" name="inventory" value="<%=obj.inventory %>" class="form-input"></p>
         </div>
         <div class="form-group">
           <p><input type="file" id="exampleInputFile"></p>
         </div>
-        <button type="submit" class="btn btn-default">提交</button>
+        <button type="submit" class="btn btn-default" id="submit_cha">提交</button>
       </form>
+      <script src="/javascripts/product.js"></script>
 </body>
 </html>

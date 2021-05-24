@@ -1,18 +1,33 @@
-$(function(){
+$(function () {
     Array.from($('.del')).forEach(i =>
-        i.onclick = function(){
+        i.onclick = function () {
             let id = $(i).parent().parent().attr("datakey");
             $.ajax({
-                url:"/table1/del/"+id,
-                type:"DELETE",
-                success:function(){
-                        alert("删除成功");
-                        $(i).parent().parent().remove();
+                url: "/table1/del/" + id,
+                type: "DELETE",
+                success: function () {
+                    alert("删除成功");
+                    $(i).parent().parent().remove();
                 }
             });
         });
 });
 
-$("#add").click(function(){
-	window.location.href='/table1/addpage';
+$(function () {
+    Array.from($('.cha')).forEach(i =>
+        i.onclick = function () {
+            let id = $(i).parent().parent().attr("datakey");
+            $.ajax({
+                url: "/table1/chapage/" + id,
+                type: "GET",
+                success: function () {
+                    window.location.href = '/table1/chapage/' + id;
+                }
+            });
+        });
+});
+
+
+$("#add").click(function () {
+    window.location.href = '/table1/addpage';
 });
