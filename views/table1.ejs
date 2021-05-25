@@ -11,15 +11,20 @@
 </head>
 <body>
     <div>
-        <input type="text">
-        <button>搜索</button>
+        <form action="/table1/search" method="POST">
+            <input type="text" name="product_name">
+            <input type="text" name="category_name">
+            <!-- <input type="text" name="product_name"> -->
+            <input type="submit" value="搜索">
+        </form>
+        
     </div>
     <div>
         <hr color="#f90">
         <button id="add">添加</button>
         <hr color="#f90">
     </div>
-    <div>
+    <div id="showdata">
         <table class="table-bordered">
             <tr style="font-weight: 600;text-align: center;">
                 <td>图片</td>

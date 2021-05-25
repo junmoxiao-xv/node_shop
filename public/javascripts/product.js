@@ -1,3 +1,4 @@
+//删除
 $(function () {
     Array.from($('.del')).forEach(i =>
         i.onclick = function () {
@@ -19,6 +20,7 @@ $(function () {
         });
 });
 
+//修改
 $(function () {
     Array.from($('.cha')).forEach(i =>
         i.onclick = function () {
@@ -33,7 +35,7 @@ $(function () {
         });
 });
 
-
+//新增
 $("#add").click(function () {
     window.location.href = '/table1/addpage';
 });
