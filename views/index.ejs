@@ -182,19 +182,21 @@
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
+              <% for(var i=0 ;i < list.length; i++){ %>
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/9012175.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="<%=list[i].product_img %>" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">爱情·月光女神</a></h3>
-                    <p class="mb-0">小清新设计 清新无比</p>
-                    <p class="text-primary font-weight-bold">￥239</p>
+                    <h3><a href="#"><%=list[i].product_name %></a></h3>
+                    <p class="mb-0"><%=list[i].details %></p>
+                    <p class="text-primary font-weight-bold">￥<%=list[i].price %></p>
                   </div>
                 </div>
               </div>
-              <div class="item">
+              <%} %>
+              <!-- <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
                     <img src="images/9012177.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
@@ -205,8 +207,8 @@
                     <p class="text-primary font-weight-bold">￥598</p>
                   </div>
                 </div>
-              </div>
-              <div class="item">
+              </div> -->
+              <!-- <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
                     <img src="images/9012455.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
@@ -217,8 +219,8 @@
                     <p class="text-primary font-weight-bold">￥389</p>
                   </div>
                 </div>
-              </div>
-              <div class="item">
+              </div> -->
+              <!-- <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
                     <img src="images/9010966.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
@@ -229,8 +231,8 @@
                     <p class="text-primary font-weight-bold">￥248</p>
                   </div>
                 </div>
-              </div>
-              <div class="item">
+              </div> -->
+              <!-- <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
                     <img src="images/9012243.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
@@ -241,7 +243,7 @@
                     <p class="text-primary font-weight-bold">￥198</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -252,7 +254,6 @@
       <div class="container">
         <div class="row justify-content-center  mb-5">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Big Sale!</h2>
           </div>
         </div>
         <div class="row align-items-center">
