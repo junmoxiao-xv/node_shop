@@ -10,14 +10,12 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var aboutRouter = require('./routes/about');
 var cartRouter = require('./routes/cart');
-var checkoutRouter = require('./routes/checkout.js');
+var checkoutRouter = require('./routes/checkout');
 var contactRouter = require('./routes/contact');
 var shopsingleRouter = require('./routes/shopsingle');
 var shopRouter = require('./routes/shop');
 var thankyouRouter = require('./routes/thankyou');
-var backstageRouter = require('./routes/backstage');
-var table1 = require('./routes/table1');
-var table2 = require('./routes/table2');
+var tablesRouter = require('./routes/tables');
 
 var User = require('./routes/bean/user');
 const { Router } = require('express');
@@ -51,9 +49,7 @@ app.use('/contact', contactRouter);
 app.use('/shopsingle', shopsingleRouter);
 app.use('/shop', shopRouter);
 app.use('/thankyou', thankyouRouter);
-app.use('/backstage', backstageRouter);
-app.use('/table1', table1);
-app.use('/table2', table2);
+app.use('/tables',tablesRouter);
 
 
 // catch 404 and forward to error handler

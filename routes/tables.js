@@ -13,11 +13,12 @@ router.get('/', function (req, res) {
       console.log(err.message);
     } else {
       data = JSON.parse(JSON.stringify(result));
+      res.render('tables', {
+        list: data
+      });
     }
   });
-  res.render('table1', {
-    list: data
-  });
+
 });
 
 //删除
@@ -30,12 +31,13 @@ router.delete('/del/:id', (req, res) => {
         if (err) {
           console.log(err.message);
         } else {
-          data = JSON.parse(JSON.stringify(result));
+          data = JSON.parse(JSON.stringify(result)); 
+          res.render('tables', {
+            list: data
+          });
         }
       });
-      res.render('table1', {
-        list: data
-      });
+
     }
   });
 });
@@ -56,7 +58,7 @@ router.post('/add', (req, res) => {
         if (err) {
           console.log(err.message);
         } else {
-          res.redirect('/table1');
+          res.redirect('/tables');
         }
       });
     }
@@ -86,7 +88,7 @@ router.post('/cha', (req, res) => {
         if (err) {
           console.log(err.message);
         } else {
-          res.redirect('/table1');
+          res.redirect('/tables');
         }
       })
     }
@@ -94,23 +96,23 @@ router.post('/cha', (req, res) => {
 });
 
 //查询
-router.post('/search',(req,res) => {
+router.post('/search', (req, res) => {
   product_name = req.body.product_name;
   category_name = req.body.category_name;
   sql = show_sql;
-  if(product_name){
+  if (product_name) {
     sql += " and product_name like'%" + product_name + "%' ";
   }
-  if(category_name){
+  if (category_name) {
     sql += " and category_name like'%" + category_name + "%' ";
   }
-  sql = sql.replace("and","where");
-  connection.query(sql,(err,result,fields) => {
+  sql = sql.replace("and", "where");
+  connection.query(sql, (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
-      res.render('table1',{
-        list:result
+      res.render('tables', {
+        list: result
       });
     }
   })

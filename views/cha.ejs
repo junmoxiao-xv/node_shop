@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新增</title>
+    <title>修改</title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <script src="/javascripts/jq.js"></script>
 </head>
 
 <body>
-    <form action="/table1/cha" method="POST">
+    <form action="/tables/cha" method="POST">
         <div class="form-group">
             <label>商品id</label>
             <p><input type="text" name="id" value="<%=obj.id %>" class="form-input" readonly unselectable='on'></p>
@@ -50,7 +50,7 @@
             <p><input type="number" name="inventory" value="<%=obj.inventory %>" class="form-input"></p>
         </div>
         <div class="form-group">
-            <p><input type="file" id="exampleInputFile"></p>
+            <p><input type="file" id="pic" name="pic" accept="image/*"></p>
         </div>
         <button type="submit" class="btn btn-default" id="submit_cha">提交</button>
     </form>
