@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="/stylesheets/fonts/icomoon/style.css">
+<head>
+  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
-    <link rel="stylesheet" href="/stylesheets/jquery-ui.css">
-    <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="/stylesheets/fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
+  <link rel="stylesheet" href="/stylesheets/jquery-ui.css">
+  <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="/stylesheets/aos.css">
+  <link rel="stylesheet" href="/stylesheets/aos.css">
 
-    <link rel="stylesheet" href="/stylesheets/style1.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="/stylesheets/style1.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -51,15 +53,16 @@
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
-                  </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  </li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
+                        class="icon-menu"></span></a></li>
                 </ul>
-              </div> 
+              </div>
             </div>
 
           </div>
         </div>
-      </div> 
+      </div>
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
@@ -96,7 +99,8 @@
       </nav>
     </header>
 
-    <div class="site-blocks-cover" style="background-image: url(images/21_birthday_banner_pc.jpg);" data-aos="fade"></div>
+    <div class="site-blocks-cover" style="background-image: url(images/21_birthday_banner_pc.jpg);" data-aos="fade">
+    </div>
 
     <div class="site-section site-section-sm site-blocks-1">
       <div class="container">
@@ -183,67 +187,24 @@
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
               <% for(var i=0 ;i < list.length; i++){ %>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="<%=list[i].product_img %>" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#"><%=list[i].product_name %></a></h3>
-                    <p class="mb-0"><%=list[i].details %></p>
-                    <p class="text-primary font-weight-bold">￥<%=list[i].price %></p>
+                <div class="item">
+                  <div class="block-4 text-center">
+                    <figure class="block-4-image">
+                      <img src="<%=list[i].product_img %>" alt="Image placeholder" class="img-fluid">
+                    </figure>
+                    <div class="block-4-text p-4">
+                      <h3><a href="#">
+                          <%=list[i].product_name %>
+                        </a></h3>
+                      <p class="mb-0">
+                        <%=list[i].details %>
+                      </p>
+                      <p class="text-primary font-weight-bold">￥<%=list[i].price %>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <%} %>
-              <!-- <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/9012177.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">爱情·不变的承诺</a></h3>
-                    <p class="mb-0">经典99枝 鼎力推荐！</p>
-                    <p class="text-primary font-weight-bold">￥598</p>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/9012455.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">爱情·亲爱的你</a></h3>
-                    <p class="mb-0">花艺师打造 韩式花束系列</p>
-                    <p class="text-primary font-weight-bold">￥389</p>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/9010966.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">爱情·一往情深</a></h3>
-                    <p class="mb-0">经典爆款，年销售冠军！</p>
-                    <p class="text-primary font-weight-bold">￥248</p>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/9012243.jpg_220x240.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">爱情·恋恋情深</a></h3>
-                    <p class="mb-0">经典款式 简约设计</p>
-                    <p class="text-primary font-weight-bold">￥198</p>
-                  </div>
-                </div>
-              </div> -->
+                <%} %>
             </div>
           </div>
         </div>
@@ -269,23 +230,28 @@
         </div>
       </div>
     </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-            Copyright &copy;<script data-cfasync="false" ></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            </p>
-          </div>
-  </div>
+    <div class="row pt-5 mt-5 text-center">
+      <div class="col-md-12">
+        <p>
+          Copyright &copy;
+          <script data-cfasync="false"></script>
+          <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
+            class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
+            class="text-primary">Colorlib</a>
+        </p>
+      </div>
+    </div>
 
-  <script src="/javascripts/jquery-3.3.1.min.js"></script>
-  <script src="/javascripts/jquery-ui.js"></script>
-  <script src="/javascripts/popper.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-  <script src="/javascripts/owl.carousel.min.js"></script>
-  <script src="/javascripts/jquery.magnific-popup.min.js"></script>
-  <script src="/javascripts/aos.js"></script>
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="/javascripts/jquery-ui.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/owl.carousel.min.js"></script>
+    <script src="/javascripts/jquery.magnific-popup.min.js"></script>
+    <script src="/javascripts/aos.js"></script>
 
-  <script src="/javascripts/main.js"></script>
-    
-  </body>
+    <script src="/javascripts/main.js"></script>
+
+</body>
+
 </html>
