@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('./conmysql')
+var connection = require('./conmysql');
 
 
 let show_sql = 'SELECT product.id,product_img,product_name,category_name,details,price,sales_count,inventory,product.create_time FROM product INNER JOIN classify  ON product.classify_id = classify.id';

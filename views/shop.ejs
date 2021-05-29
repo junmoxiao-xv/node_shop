@@ -91,8 +91,6 @@
               </ul>
             </li>
             <li class="active"><a href="/shop">店铺</a></li>
-            <!-- <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li> -->
             <li><a href="/contact">个人信息</a></li>
           </ul>
         </div>
@@ -144,11 +142,11 @@
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                   <div class="block-4 text-center border">
                     <figure class="block-4-image">
-                      <a href="/shopsingle"><img src="<%=list[i].product_img %>" alt="Image placeholder"
+                      <a href="/shop/shopsingle/<%=list[i].id %>" ><img src="<%=list[i].product_img %>" alt="Image placeholder"
                           class="img-fluid"></a>
                     </figure>
                     <div class="block-4-text p-4">
-                      <h3><a href="shop-single.html">
+                      <h3><a href="/shop/shopsingle/<%=list[i].id %>" >
                           <%=list[i].product_name %>
                         </a></h3>
                       <p class="mb-0">
@@ -210,23 +208,6 @@
                   <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">99枝以上</span>
                 </label>
               </div>
-
-              <!-- <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">颜色</h3>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">红色</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-purple color d-inline-block rounded-circle mr-2"></span> <span class="text-black">粉色</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-light color d-inline-block rounded-circle mr-2"></span> <span class="text-black">白色</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-yellow color d-inline-block rounded-circle mr-2"></span> <span class="text-black">黄色</span>
-                </a>
-              </div> -->
-
             </div>
           </div>
         </div>
@@ -243,7 +224,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
                   <a class="block-2-item" href="#">
                     <figure class="image">
-                      <img src="images/home_floor_lover.png" alt="" class="img-fluid" style="width: 100%;">
+                      <img src="/images/home_floor_lover.png" alt="" class="img-fluid" style="width: 100%;">
                     </figure>
                     <div class="text">
                       <span class="text-uppercase">鲜花</span>
