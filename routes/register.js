@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
 var User = require('./bean/user');
-var connection = require('./conmysql')
+var connection = require('./conmysql');
 
 router.get('/', (req, res) => {
   res.render('register',{message:''});

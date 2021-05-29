@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <appSettings>
+   <add key="smtp" value="smtp.qq.com"/>
+   <!-- 配置服务 smtp.exmail.qq.com//企业邮箱 非qq; -->
+   <add key="mailFrom" value="*@qq.com"/>
+  <!--配置发送邮箱 -->
+   <add key="mailPwd" value="v567jvsvqajos67e"/>
+  <!--smtp授权码 -->
+ </appSettings>
