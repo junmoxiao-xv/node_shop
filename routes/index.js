@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var connection = require('./conmysql');
 
-let show_sql = 'SELECT product_img,product_name,details,price FROM product LIMIT 7';
+let show_sql = 'SELECT id,product_img,product_name,details,price FROM product LIMIT 7';
 let data = new Array();
 
 //数据展示
@@ -18,5 +18,6 @@ router.get('/', function (req, res) {
     }
   });
 });
+
 
 module.exports = router;

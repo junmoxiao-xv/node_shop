@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 28/05/2021 00:05:21
+ Date: 30/05/2021 15:52:55
 */
 
 SET NAMES utf8mb4;
@@ -34,18 +34,26 @@ CREATE TABLE `address`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for administrator
+-- Table structure for admin
 -- ----------------------------
-DROP TABLE IF EXISTS `administrator`;
-CREATE TABLE `administrator`  (
-  `id` int(0) NOT NULL,
-  `user_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `status` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES (1, 'e10adc3949ba59abbe56e057f20f883e', '0', '2021-05-30 01:31:54', NULL, '1942049754@qq.com');
+INSERT INTO `admin` VALUES (2, 'e10adc3949ba59abbe56e057f20f883e', '0', '2021-05-30 01:30:27', NULL, '1063079106@qq.com');
+INSERT INTO `admin` VALUES (3, 'e10adc3949ba59abbe56e057f20f883e', '0', '2021-05-30 12:04:00', NULL, '2904672234@qq.com');
+INSERT INTO `admin` VALUES (7, '202cb962ac59075b964b07152d234b70', '0', NULL, NULL, '3116005129@mail2.gdut.edu.cn');
 
 -- ----------------------------
 -- Table structure for cart
@@ -92,33 +100,34 @@ INSERT INTO `classify` VALUES (9, '绣球花', '2021-05-27 01:06:24', NULL);
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
-  `classify_id` int(0) NOT NULL,
-  `product_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `product_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `price` decimal(10, 2) NULL DEFAULT NULL,
-  `status` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `inventory` int(0) NULL DEFAULT NULL,
-  `sales_count` int(0) NULL DEFAULT NULL,
+  `classify_id` int(0) NOT NULL COMMENT '分类id',
+  `product_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '商品名称',
+  `product_img` varchar(155) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '图片',
+  `intro` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '简介',
+  `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详情',
+  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '价格',
+  `status` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '状态',
+  `inventory` int(0) NULL DEFAULT NULL COMMENT '库存',
+  `sales_count` int(0) NULL DEFAULT NULL COMMENT '销量',
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES (1, 2, '一往情深', '/images/9010966.jpg_220x240.jpg', '[经典爆款，年销售冠军！] 精品玫瑰礼盒:19枝卡罗拉红玫瑰，勿忘我1枝', 248.00, '1', 1891, 13513, '2021-05-27 00:46:43', NULL);
-INSERT INTO `product` VALUES (2, 1, '月光女神', '/images/9012175.jpg_220x240.jpg', '[小清新设计 清新无比] 坦尼克玫瑰11枝，绿色桔梗5枝，小菊3枝，白色石竹梅4枝', 299.00, '1', 366, 510, '2021-05-27 00:48:56', NULL);
-INSERT INTO `product` VALUES (3, 2, '不变的承诺', '/images/9012177.jpg_220x240.jpg', '[经典99枝，鼎力推荐！] 99枝卡罗拉红玫瑰', 799.00, '1', 123, 724, '2021-05-20 20:48:54', NULL);
-INSERT INTO `product` VALUES (4, 3, '恋恋情深', '/images/9012243.jpg_220x240.jpg', '[经典款式 简约设计] 11枝香槟玫瑰，白色多头百合2枝', 257.00, '1', 789, 844, '2021-05-20 21:05:29', NULL);
-INSERT INTO `product` VALUES (5, 4, '淳美之爱', '/images/9012455.jpg_220x240.jpg', '[5.20情人节新品] 戴安娜玫瑰33枝、粉色美女樱10枝', 439.00, '1', 458, 166, '2021-05-21 11:31:08', NULL);
-INSERT INTO `product` VALUES (6, 2, '你是唯一', '/images/9012471.jpg_220x240.jpg', '[11枝新品 一心一意的爱] 卡罗拉红玫瑰11枝', 139.00, '1', 980, 690, '2021-05-27 00:51:07', NULL);
-INSERT INTO `product` VALUES (7, 5, '一路向阳', '/images/9012452.jpg_220x240.jpg', '[花艺师打造 韩式花束系列] 向日葵3枝、香槟玫瑰9枝、橙色多头玫5枝、黄色腊梅5枝、大叶尤加利5枝', 296.00, '1', 456, 736, '2021-05-27 00:53:23', NULL);
-INSERT INTO `product` VALUES (8, 6, '恩情无限', '/images/9012189.jpg_220x240.jpg', '[精选花材 精心设计] 粉色康乃馨11枝，百合2枝', 175.00, '1', 45, 172, '2021-05-27 00:57:39', NULL);
-INSERT INTO `product` VALUES (9, 7, '一路有你', '/images/1073264.jpg_220x240.jpg', '[创意 永生花礼盒] 永生花礼盒', 298.00, '1', 56, 178, '2021-05-27 00:59:37', NULL);
-INSERT INTO `product` VALUES (10, 8, '爱的芬芳', '/images/9012164.jpg', '白色郁金香9枝，粉色郁金香9枝，紫色小菊3枝，高山羊齿叶7枝', 308.00, '1', 67, 141, '2021-05-27 01:02:37', NULL);
-INSERT INTO `product` VALUES (11, 9, '奈何情甄', '/images/9012414.jpg_220x240.jpg', '[清新设计 多样花材] 粉色康乃馨10枝，浅蓝色绣球1枝，浅紫色紫罗兰5枝', 289.00, '1', 281, 1201, '2021-05-27 23:45:14', NULL);
+INSERT INTO `product` VALUES (1, 9, '奈何情甄', '/images/9012414.jpg_220x240.jpg', '春风化雨暖透我的心', '[清新设计 多样花材] 粉色康乃馨10枝，浅蓝色绣球1枝，浅紫色紫罗兰5枝', 289.00, '1', 281, 1201, '2021-05-27 23:45:14', NULL);
+INSERT INTO `product` VALUES (2, 1, '月光女神', '/images/9012175.jpg_220x240.jpg', '她将成为我的爱人', '[小清新设计 清新无比] 坦尼克玫瑰11枝，绿色桔梗5枝，小菊3枝，白色石竹梅4枝', 299.00, '1', 366, 510, '2021-05-27 00:48:56', NULL);
+INSERT INTO `product` VALUES (3, 2, '不变的承诺', '/images/9012177.jpg_220x240.jpg', '爱她就送她一束99枝的玫瑰', '[经典99枝，鼎力推荐！] 99枝卡罗拉红玫瑰', 799.00, '1', 123, 724, '2021-05-20 20:48:54', NULL);
+INSERT INTO `product` VALUES (4, 3, '恋恋情深', '/images/9012243.jpg_220x240.jpg', '爱你是细水长流', '[经典款式 简约设计] 11枝香槟玫瑰，白色多头百合2枝', 257.00, '1', 789, 844, '2021-05-20 21:05:29', NULL);
+INSERT INTO `product` VALUES (5, 4, '亲爱的你', '/images/9012455.jpg_220x240.jpg', '我想在阳光下满身花香', '[5.20情人节新品] 戴安娜玫瑰33枝、粉色美女樱10枝', 439.00, '1', 458, 166, '2021-05-21 11:31:08', NULL);
+INSERT INTO `product` VALUES (6, 6, '恩情无限', '/images/9012189.jpg_220x240.jpg', ' 我喜欢的样子你都有', '[精选花材 精心设计] 粉色康乃馨11枝，百合2枝', 175.00, '1', 45, 172, '2021-05-27 00:57:39', NULL);
+INSERT INTO `product` VALUES (7, 2, '一往情深', '/images/9010966.jpg_220x240.jpg', '我对你始终一往情深', '[经典爆款，年销售冠军！] 精品玫瑰礼盒:19枝卡罗拉红玫瑰，勿忘我1枝', 248.00, '1', 1891, 13513, '2021-05-27 00:46:43', NULL);
+INSERT INTO `product` VALUES (8, 2, '你是唯一', '/images/9012471.jpg_220x240.jpg', '人间蹉跎，你是唯一值得', '[11枝新品 一心一意的爱] 卡罗拉红玫瑰11枝', 139.00, '1', 980, 690, '2021-05-27 00:51:07', NULL);
+INSERT INTO `product` VALUES (9, 5, '一路向阳', '/images/9012452.jpg_220x240.jpg', '你的爱就像一束阳光', '[花艺师打造 韩式花束系列] 向日葵3枝、香槟玫瑰9枝、橙色多头玫5枝、黄色腊梅5枝、大叶尤加利5枝', 296.00, '1', 456, 736, '2021-05-27 00:53:23', NULL);
+INSERT INTO `product` VALUES (10, 8, '爱的芬芳', '/images/9012164.jpg', '我会遇见你，在人海茫茫', '白色郁金香9枝，粉色郁金香9枝，紫色小菊3枝，高山羊齿叶7枝', 308.00, '1', 67, 141, '2021-05-27 01:02:37', NULL);
+INSERT INTO `product` VALUES (11, 7, '一路有你', '/images/1073264.jpg_220x240.jpg', '一路都有我的陪伴', '[创意 永生花礼盒] 永生花礼盒', 298.00, '1', 56, 178, '2021-05-27 00:59:37', NULL);
 
 -- ----------------------------
 -- Table structure for users
