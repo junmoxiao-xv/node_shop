@@ -5,21 +5,22 @@ var connection = require('./conmysql');
 let show_sql = 'SELECT id,product_img,product_name,price,intro,details FROM product';
 let data = new Array();
 
-//数据展示
-router.get('/', function (req, res) {
-  connection.query(show_sql, (err, result, fields) => {
+connection.query(show_sql, (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
       data = JSON.parse(JSON.stringify(result));
-      res.render('shop', {
-        list: data
-      });
     }
   });
+
+//数据展示
+router.get('/', function (req, res) {
+  res.render('shop', {
+        list: data
+      });
 });
 
-router.get('/shopsingle/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   connection.query(show_sql+' WHERE id!='+req.params.id+' LIMIT 5', (err, result, fields) => {
     if (err) {
       console.log(err.message);
