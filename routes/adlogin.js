@@ -20,6 +20,7 @@ router.post('/',(req,res) => {
       }
       var admin = result[0];
       if(admin){
+        req.session.admin = admin;
         res.redirect('/tables');
       }else{
         res.render('adlogin',{message:'邮箱或密码错误'});

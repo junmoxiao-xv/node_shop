@@ -35,10 +35,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: "123",
-  cookie : {maxAge : 60000},
+  cookie : {maxAge : 1000 * 60 * 30},
   resave : false,
   saveUninitialized : true
 }));
+/* 登录拦截 */
+app.use((req,res,next)=>{
+  let url=req.originalUrl
+      if (url == "/tables" && !req.session.admin) {
+          return res.redirect("/adlogin");
+      }
+      next();
+  })  
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',indexRouter);
@@ -71,5 +80,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
