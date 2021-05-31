@@ -130,8 +130,8 @@
                       data-toggle="dropdown">筛选</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">价格升序</a>
-                      <a class="dropdown-item" href="#">价格降序</a>
+                      <a class="dropdown-item" href="/shop/price/asc">价格升序</a>
+                      <a class="dropdown-item" href="/shop/price/desc">价格降序</a>
                     </div>
                   </div>
                 </div>
@@ -180,34 +180,11 @@
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">分类目录</h3>
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>玫瑰</span> <span
-                      class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>康乃馨</span> <span
-                      class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>郁金香</span> <span
-                      class="text-black ml-auto">(2,124)</span></a></li>
+                <% for(var i=0 ;i < list2.length; i++){ %>
+                <li class="mb-1"><a href="/shop/category/<%=list2[i].id %>" class="d-flex"><span><%=list2[i].category_name %></span></a></li>
+                <%} %>
+
               </ul>
-            </div>
-
-            <div class="border p-4 rounded mb-4">
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">按价格筛选</h3>
-                <div id="slider-range" class="border-primary"></div>
-                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div>
-
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">枝数</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="radio" id="s_sm" class="mr-2 mt-1" name="num"> <span class="text-black">10枝以下</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="radio" id="s_md" class="mr-2 mt-1" name="num"> <span class="text-black">10~99枝</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="radio" id="s_lg" class="mr-2 mt-1" name="num"> <span class="text-black">99枝以上</span>
-                </label>
-              </div>
             </div>
           </div>
         </div>
@@ -235,7 +212,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                   <a class="block-2-item" href="#">
                     <figure class="image">
-                      <img src="images/home_floor_song.jpg" alt="" class="img-fluid" style="width: 100%;">
+                      <img src="/images/home_floor_song.jpg" alt="" class="img-fluid" style="width: 100%;">
                     </figure>
                     <div class="text">
                       <span class="text-uppercase">永生花</span>
@@ -246,7 +223,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                   <a class="block-2-item" href="#">
                     <figure class="image">
-                      <img src="images/home_floor_elder.png" alt="" class="img-fluid" style="width: 100%;">
+                      <img src="/images/home_floor_elder.png" alt="" class="img-fluid" style="width: 100%;">
                     </figure>
                     <div class="text">
                       <span class="text-uppercase">鲜花</span>
@@ -282,7 +259,6 @@
     <script src="/javascripts/owl.carousel.min.js"></script>
     <script src="/javascripts/jquery.magnific-popup.min.js"></script>
     <script src="/javascripts/aos.js"></script>
-
     <script src="/javascripts/main.js"></script>
 
 </body>
