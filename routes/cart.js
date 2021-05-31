@@ -19,4 +19,21 @@ router.get('/', function (req, res) {
   });
 });
 
+router.post('/search', (req, res) => {
+  product_name = req.body.product_name;
+  sql = show_sql;
+  if (product_name) {
+    sql += " WHERE product_name like'%" + product_name + "%' ";
+  }
+  connection.query(sql, (err, result, fields) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      res.render('cart', {
+        list: result
+      });
+    }
+  })
+});
+
 module.exports = router;

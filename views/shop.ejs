@@ -31,9 +31,9 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
+              <form action="/search" method="POST" class="site-block-top-search">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="搜索">
+                <input type="text" class="form-control border-0" placeholder="搜索" name="key">
               </form>
             </div>
 
@@ -142,11 +142,11 @@
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                   <div class="block-4 text-center border">
                     <figure class="block-4-image">
-                      <a href="/shop/<%=list[i].id %>" ><img src="<%=list[i].product_img %>" alt="Image placeholder"
+                      <a href="/shop/<%=list[i].id %>"><img src="<%=list[i].product_img %>" alt="Image placeholder"
                           class="img-fluid"></a>
                     </figure>
                     <div class="block-4-text p-4">
-                      <h3><a href="/shop/<%=list[i].id %>" >
+                      <h3><a href="/shop/<%=list[i].id %>">
                           <%=list[i].product_name %>
                         </a></h3>
                       <p class="mb-0">
@@ -199,13 +199,13 @@
               <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">枝数</h3>
                 <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">10枝以下</span>
+                  <input type="radio" id="s_sm" class="mr-2 mt-1" name="num"> <span class="text-black">10枝以下</span>
                 </label>
                 <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">10~99枝</span>
+                  <input type="radio" id="s_md" class="mr-2 mt-1" name="num"> <span class="text-black">10~99枝</span>
                 </label>
                 <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">99枝以上</span>
+                  <input type="radio" id="s_lg" class="mr-2 mt-1" name="num"> <span class="text-black">99枝以上</span>
                 </label>
               </div>
             </div>
