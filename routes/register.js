@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
-var User = require('./bean/user');
 var connection = require('./conmysql');
 
 router.get('/', (req, res) => {
@@ -24,8 +23,6 @@ router.post('/', (req,res) => {
           console.log(err.message);
         }
       });
-        let user = new User(name,password,req.body.phone,req.body.sex,req.body.email);
-        req.session.user = user;
         res.redirect('/login');
     }
   });

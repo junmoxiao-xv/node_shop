@@ -112,7 +112,7 @@
             <h2 class="text-black"><%=obj.product_name %></h2>
             <p><%=obj.details %></p>
             <p class="mb-4">花语：<%=obj.intro %></p>
-            <p><strong class="text-primary h4">$<%=obj.price %></strong></p>
+            <p><strong class="text-primary h4">￥<%=obj.price %></strong></p>
             <div class="mb-1 d-flex">
               <label for="option-sm" class="d-flex mr-3 mb-3">
                 <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
@@ -139,7 +139,7 @@
             </div>
 
             </div>
-            <p><a href="/cart" class="buy-now btn btn-sm btn-primary">加入购物车</a></p>
+            <p><a href="/cart/add" class="buy-now btn btn-sm btn-primary">加入购物车</a></p>
 
           </div>
         </div>
@@ -167,7 +167,7 @@
                   <div class="block-4-text p-4">
                     <h3><a href="<%=list[i].id %>"><%=list[i].product_name %></a></h3>
                     <p class="mb-0"><%=list[i].intro %></p>
-                    <p class="text-primary font-weight-bold">$<%=list[i].price %></p>
+                    <p class="text-primary font-weight-bold">￥<%=list[i].price %></p>
                   </div>
                 </div>
               </div>
