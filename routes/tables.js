@@ -10,7 +10,7 @@ let time = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
 
 //数据展示
 router.get('/', function (req, res) {
-  connection.query(show_sql+ ' ORDER BY create_time DESC', (err, result, fields) => {
+  connection.query(show_sql+ ' ORDER BY product.id DESC', (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
@@ -28,7 +28,7 @@ router.delete('/del/:id', (req, res) => {
     if (err) {
       console.log(err.message);
     } else {
-      connection.query(show_sql, (err, result, fields) => {
+      connection.query(show_sql+ ' ORDER BY product.id DESC', (err, result, fields) => {
         if (err) {
           console.log(err.message);
         } else {

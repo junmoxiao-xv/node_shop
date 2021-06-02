@@ -105,9 +105,9 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
+          <div class="col-md-12">
             <div class="site-blocks-table">
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="cart_table">
                 <thead>
                   <tr>
                     <th class="product-thumbnail">图片</th>
@@ -120,7 +120,7 @@
                 </thead>
                 <tbody>
                   <% for(var i=0 ;i < list.length; i++){ %>
-                  <tr>
+                  <tr datakey=<%=list[i].cid %> >
                     <td class="product-thumbnail">
                       <img src="<%=list[i].product_img %>" alt="Image" class="img-fluid">
                     </td>
@@ -141,13 +141,13 @@
 
                     </td>
                     <td>$<%=list[i].price %></td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+                    <td class="del"><button class="btn btn-primary btn-sm">X</button></td>
                   </tr>
                   <%} %>
                 </tbody>
               </table>
             </div>
-          </form>
+          </div>
         </div>
 
         <div class="row">
@@ -229,7 +229,7 @@
   <script src="/javascripts/owl.carousel.min.js"></script>
   <script src="/javascripts/jquery.magnific-popup.min.js"></script>
   <script src="/javascripts/aos.js"></script>
-
+  <script src="/javascripts/cart.js"></script>
   <script src="/javascripts/main.js"></script>
     
   </body>

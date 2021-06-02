@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('./conmysql');
+var sd = require('silly-datetime');
 
 let show_sql = 'SELECT product.id,product_img,product_name,details,price,intro FROM product INNER JOIN classify  ON product.classify_id = classify.id';
 let catalog_sql = 'SELECT id,category_name FROM classify';
 let data = new Array();
 let data2 = new Array();
+let time = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
 
 connection.query(show_sql, (err, result, fields) => {
   if (err) {
@@ -111,6 +113,22 @@ router.get('/price/desc', (req, res) => {
       })
     }
   })
+});
+
+//加入购物车
+router.get('/add/:id', (req, res) => {
+  let user = req.session.user;
+  if (user == undefined) {
+    res.redirect('/login');
+  } else {
+    connection.query('INSERT INTO cart (user_id,product_id,create_time) VALUES(?,?,?)',[user.id,req.params.id,time,], (err, result, fields) => {
+      if (err) {
+        console.log(err.message);
+      } else {
+        res.redirect('/cart');
+      }
+    })
+  }
 });
 
 module.exports = router;
