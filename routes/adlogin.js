@@ -26,6 +26,6 @@ router.post('/',(req,res) => {
         res.render('adlogin',{message:'邮箱或密码错误'});
       }
     });
-  });
+});
 
 module.exports = router;

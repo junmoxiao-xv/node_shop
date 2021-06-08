@@ -120,7 +120,7 @@
                 </thead>
                 <tbody>
                   <% for(var i=0 ;i < list.length; i++){ %>
-                  <tr datakey=<%=list[i].cid %> >
+                  <tr class="cart_product" datakey=<%=list[i].cid %> >
                     <td class="product-thumbnail">
                       <a href="/shop/<%=list[i].pid %>">
                         <img src="<%=list[i].product_img %>" alt="Image" class="img-fluid">
@@ -131,20 +131,20 @@
                         <h2 class="h5 text-black"><%=list[i].product_name %></h2>
                       </a>
                     </td>
-                    <td>$<%=list[i].price %></td>
+                    <td class="price" price=<%=list[i].price %>>￥<%=list[i].price %></td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center sum" value="<%=list[i].amount %>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
                       </div>
 
                     </td>
-                    <td>$<%=list[i].price %></td>
+                    <td class="sum_price"><%=list[i].price*list[i].amount %></td>
                     <td class="del"><button class="btn btn-primary btn-sm">X</button></td>
                   </tr>
                   <%} %>
@@ -164,18 +164,6 @@
                 <button class="btn btn-outline-primary btn-sm btn-block" onclick="window.location='/shop'">继续购物</button>
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-md-12">
-                <label class="text-black h4" for="coupon">优惠劵</label>
-                <p>请输入您的优惠券代码</p>
-              </div>
-              <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="优惠劵代码">
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">领取优惠劵</button>
-              </div>
-            </div> -->
           </div>
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
@@ -186,19 +174,13 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">小计</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
-                  </div>
                 </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">总计</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    ￥<strong class="text-black" id="total_price"><%=total_prices %></strong>
                   </div>
                 </div>
 
@@ -217,9 +199,7 @@
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script data-cfasync="false"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
           
@@ -235,6 +215,5 @@
   <script src="/javascripts/aos.js"></script>
   <script src="/javascripts/cart.js"></script>
   <script src="/javascripts/main.js"></script>
-    
   </body>
 </html>

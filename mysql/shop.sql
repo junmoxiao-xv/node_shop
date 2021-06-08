@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 03/06/2021 10:57:36
+ Date: 09/06/2021 00:30:22
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address`  (
-  `id` int(0) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` int(0) NOT NULL,
   `province` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `city` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
@@ -32,6 +32,11 @@ CREATE TABLE `address`  (
   `updata_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+INSERT INTO `address` VALUES (1, 1, '江西省', '吉安市', '吉州区', '北门街道沿江路97-1号吉安一中', '2021-06-08 16:30:12', NULL);
 
 -- ----------------------------
 -- Table structure for admin
@@ -62,18 +67,19 @@ CREATE TABLE `cart`  (
   `id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` int(0) NOT NULL,
   `product_id` int(0) NOT NULL,
-  `count` int(0) NOT NULL DEFAULT 1,
+  `amount` int(0) NOT NULL DEFAULT 1,
   `create_time` datetime(0) NULL DEFAULT NULL,
   `update_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 118 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
-INSERT INTO `cart` VALUES (19, 1, 9, 1, '2021-06-03 00:22:41', NULL);
-INSERT INTO `cart` VALUES (21, 1, 2, 1, '2021-06-03 00:26:39', NULL);
-INSERT INTO `cart` VALUES (26, 1, 8, 1, '2021-06-03 00:36:25', NULL);
+INSERT INTO `cart` VALUES (57, 2, 9, 1, '2021-06-03 20:03:26', NULL);
+INSERT INTO `cart` VALUES (58, 2, 8, 1, '2021-06-03 20:03:26', NULL);
+INSERT INTO `cart` VALUES (120, 1, 1, 1, '2021-06-08 10:10:33', NULL);
+INSERT INTO `cart` VALUES (122, 1, 2, 1, '2021-06-08 19:46:10', NULL);
 
 -- ----------------------------
 -- Table structure for classify
@@ -115,7 +121,7 @@ CREATE TABLE `product`  (
   `create_time` timestamp(0) NULL DEFAULT NULL,
   `update_time` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -129,8 +135,7 @@ INSERT INTO `product` VALUES (6, 3, '恩情无限', '/images/9012189.jpg_220x240
 INSERT INTO `product` VALUES (7, 1, '一往情深', '/images/9010966.jpg_220x240.jpg', '我对你始终一往情深', '[经典爆款，年销售冠军！] 精品玫瑰礼盒:19枝卡罗拉红玫瑰，勿忘我1枝', 248.00, '1', 1891, 13513, '2021-05-27 00:46:43', NULL);
 INSERT INTO `product` VALUES (8, 1, '你是唯一', '/images/9012471.jpg_220x240.jpg', '人间蹉跎，你是唯一值得', '[11枝新品 一心一意的爱] 卡罗拉红玫瑰11枝', 139.00, '1', 980, 690, '2021-05-27 00:51:07', NULL);
 INSERT INTO `product` VALUES (9, 2, '一路向阳', '/images/9012452.jpg_220x240.jpg', '你的爱就像一束阳光', '[花艺师打造 韩式花束系列] 向日葵3枝、香槟玫瑰9枝、橙色多头玫5枝、黄色腊梅5枝、大叶尤加利5枝', 296.00, '1', 456, 736, '2021-05-27 00:53:23', NULL);
-INSERT INTO `product` VALUES (10, 5, '爱的芬芳', '/images/9012164.jpg', '我会遇见你，在人海茫茫', '白色郁金香9枝，粉色郁金香9枝，紫色小菊3枝，高山羊齿叶7枝', 308.00, '1', 67, 141, '2021-05-27 01:02:37', NULL);
-INSERT INTO `product` VALUES (11, 4, '一路有你', '/images/1073264.jpg_220x240.jpg', '一路都有我的陪伴', '[创意 永生花礼盒] 永生花礼盒', 298.00, '1', 56, 178, '2021-05-27 00:59:37', NULL);
+INSERT INTO `product` VALUES (10, 5, '爱的芬芳', '/images/9012164.jpg', '我会遇见你，在人海茫茫', '白色郁金香9枝，粉色郁金香9枝，紫色小菊3枝，高山羊齿叶7枝', 308.00, '1', 67, 142, '2021-05-27 01:02:37', '2021-06-06 16:14:37');
 
 -- ----------------------------
 -- Table structure for users

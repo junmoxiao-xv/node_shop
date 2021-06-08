@@ -9,13 +9,7 @@ let data = new Array();
 let data2 = new Array();
 let time = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
 
-connection.query(show_sql, (err, result, fields) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    data = JSON.parse(JSON.stringify(result));
-  }
-});
+
 
 connection.query(catalog_sql, (err, result, fields) => {
   if (err) {
@@ -27,10 +21,18 @@ connection.query(catalog_sql, (err, result, fields) => {
 
 //数据展示
 router.get('/', function (req, res) {
-  res.render('shop', {
-    list: data,
-    list2: data2
+  connection.query(show_sql, (err, result, fields) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      data = JSON.parse(JSON.stringify(result));
+      res.render('shop', {
+        list: data,
+        list2: data2
+      });
+    }
   });
+
 });
 
 //商品详情
@@ -89,10 +91,10 @@ router.get('/category/:id', (req, res) => {
 
 //价格升序展示
 router.get('/price/asc', (req, res) => {
-  connection.query(show_sql+' ORDER BY price ASC', (err, result, fields) => {
+  connection.query(show_sql + ' ORDER BY price ASC', (err, result, fields) => {
     if (err) {
       console.log(err.message);
-    }else{
+    } else {
       res.render('shop', {
         list: result,
         list2: data2
@@ -103,10 +105,10 @@ router.get('/price/asc', (req, res) => {
 
 //价格降序展示
 router.get('/price/desc', (req, res) => {
-  connection.query(show_sql+' ORDER BY price DESC', (err, result, fields) => {
+  connection.query(show_sql + ' ORDER BY price DESC', (err, result, fields) => {
     if (err) {
       console.log(err.message);
-    }else{
+    } else {
       res.render('shop', {
         list: result,
         list2: data2
@@ -116,19 +118,36 @@ router.get('/price/desc', (req, res) => {
 });
 
 //加入购物车
-router.get('/add/:id', (req, res) => {
+router.post('/add/:id', (req, res) => {
   let user = req.session.user;
   if (user == undefined) {
     res.redirect('/login');
   } else {
-    connection.query('INSERT INTO cart (user_id,product_id,create_time) VALUES(?,?,?)',[user.id,req.params.id,time,], (err, result, fields) => {
+    connection.query("SELECT * FROM cart WHERE user_id=" + user.id + " AND product_id=" + req.params.id, (err, result, fields) => {
       if (err) {
         console.log(err.message);
       } else {
-        res.redirect('/cart');
+        if (result[0]) {
+          connection.query("UPDATE cart SET amount = amount+" + req.body.amount + " WHERE user_id=" + user.id + " AND  product_id=" + req.params.id, (err, result, fields) => {
+            if (err) {
+              console.log(err.message);
+            } else {
+              res.redirect('/cart');
+            }
+          })
+        } else {
+          connection.query('INSERT INTO cart (user_id,product_id,amount,create_time) VALUES(?,?,?,?)', [user.id, req.params.id, req.body.amount, time,], (err, result, fields) => {
+            if (err) {
+              console.log(err.message);
+            } else {
+              res.redirect('/cart');
+            }
+          })
+        }
       }
     })
   }
+
 });
 
 module.exports = router;

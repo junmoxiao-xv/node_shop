@@ -43,7 +43,7 @@ app.use(session({
 app.use((req,res,next)=>{
   let url=req.originalUrl
       if (url == "/tables" && !req.session.admin) {
-          return res.redirect("/adlogin")
+          return res.redirect("/adlogin");
       }else if(url == "/cart" && !req.session.user){
         return res.redirect("/login");
       }

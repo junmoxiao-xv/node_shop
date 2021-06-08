@@ -28,15 +28,8 @@ router.delete('/del/:id', (req, res) => {
     if (err) {
       console.log(err.message);
     } else {
-      connection.query(show_sql+ ' ORDER BY product.id DESC', (err, result, fields) => {
-        if (err) {
-          console.log(err.message);
-        } else {
-          data = JSON.parse(JSON.stringify(result)); 
-          res.render('tables', {
-            list: data
-          });
-        }
+      res.render('tables', {
+        list: data
       });
 
     }
