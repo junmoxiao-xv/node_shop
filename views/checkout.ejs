@@ -31,23 +31,19 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="/index" class="js-logo-clone">花花世界</a>
+                <a href="/" class="js-logo-clone">花花世界</a>
               </div>
             </div>
 
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
               <div class="site-top-icons">
                 <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  <li><a href="/login"><span class="icon icon-person"></span></a></li>
+                  <li><a href="/contact"><span class="icon icon-th-list"></span></a></li>
                   <li>
                     <a href="/cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
@@ -67,31 +63,18 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children">
-              <a href="/index">首页</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
+              <a href="/">首页</a>
             </li>
             <li class="has-children">
-              <a href="/about">关于</a>
+              <a>专区</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
+                <li><a href="/region/1">送朋友</a></li>
+                <li><a href="/region/2">送恋人</a></li>
+                <li><a href="/region/3">送长辈</a></li>
               </ul>
             </li>
             <li><a href="/shop">店铺</a></li>
-            <li><a href="/contact">收货地址</a></li>
+            <li><a href="/contact">我的订单</a></li>
           </ul>
         </div>
       </nav>
@@ -100,8 +83,9 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="/index">首页</a> <span class="mx-2 mb-0">/</span> <a href="/cart">购物车</a>
-            <span class="mx-2 mb-0">/</span> <strong class="text-black">结算</strong></div>
+          <div class="col-md-12 mb-0"><a href="/">首页</a> <span class="mx-2 mb-0">/</span> <a href="/cart">购物车</a>
+            <span class="mx-2 mb-0">/</span> <strong class="text-black">结算</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -113,29 +97,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">结算明细</h2>
-            <div class="p-3 p-lg-5 border">
-              <form >
-              <label for="c_fname" class="text-black">收货人<span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="c_fname" name="c_fname">
-              <label for="province" class="text-black">省<span class="text-danger">*</span></label>
-              <select id="province" class="form-control"></select>
-              <label for="city" class="text-black">市<span class="text-danger">*</span></label>
-              <select id="city" class="form-control"></select>
-              <label for="county" class="text-black">区<span class="text-danger">*</span></label>
-              <select id="county" class="form-control"></select>
-              <label for="c_address" class="text-black">地址 <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="c_address" name="c_address" placeholder="街道地址">
-              <label for="c_diff_phone" class="text-black">电话号码<span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="电话号码">
-              <label for="c_order_notes" class="text-black">订单备注</label>
-              <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control"
-                placeholder="选填，请先和商家协商一致"></textarea>
-              <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">确定</button>
-              </form>
-            </div>
-          </div>
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-12">
@@ -148,61 +109,43 @@
                     </thead>
                     <tbody>
                       <% for(var i=0 ;i < list.length; i++){ %>
-                      <tr>
-                        <td><%=list[i].product_name %><strong class="mx-2">x</strong> <%=list[i].amount %></td>
-                        <td>￥<%=list[i].sum_price %></td>
-                      </tr>
-                      <%} %>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>合计</strong></td>
-                        <td class="text-black">￥<%=obj.total_prices %></td>
-                      </tr>
+                        <tr>
+                          <td>
+                            <%=list[i].product_name %><strong class="mx-2">x</strong>
+                              <%=list[i].amount %>
+                          </td>
+                          <td>￥<%=list[i].sum_price %>
+                          </td>
+                        </tr>
+                        <%} %>
+                          <tr>
+                            <td class="text-black font-weight-bold"><strong>合计</strong></td>
+                            <td class="text-black">￥<%=obj.total_prices %>
+                            </td>
+                          </tr>
                     </tbody>
                   </table>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button"
-                        aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-                    <div class="collapse" id="collapsebank">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
-                          account.</p>
-                      </div>
+                  <form action="/checkout" method="POST">
+                    <label for="c_fname" class="text-black">收货人<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="c_fname" name="fname">
+                    <label for="province" class="text-black">省<span class="text-danger">*</span></label>
+                    <select id="province" class="form-control"></select>
+                    <label for="city" class="text-black">市<span class="text-danger">*</span></label>
+                    <select id="city" class="form-control"></select>
+                    <label for="county" class="text-black">区<span class="text-danger">*</span></label>
+                    <select id="county" class="form-control"></select>
+                    <label for="c_address" class="text-black">地址 <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="c_address" name="address" placeholder="街道地址">
+                    <label for="c_diff_phone" class="text-black">电话号码<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="c_diff_phone" name="phone" placeholder="电话号码">
+                    <label for="c_order_notes" class="text-black">订单备注</label>
+                    <textarea name="ordernotes" id="c_order_notes" cols="30" rows="5" class="form-control"
+                      placeholder="选填，请先和商家协商一致"></textarea>
+                    <div class="form-group">
+                      <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">提交订单</button>
                     </div>
-                  </div>
 
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button"
-                        aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                    <div class="collapse" id="collapsecheque">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
-                          account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-5">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button"
-                        aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
-
-                    <div class="collapse" id="collapsepaypal">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
-                          account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block"
-                      onclick="window.location='/thankyou'">提交订单</button>
-                  </div>
+                  </form>
 
                 </div>
               </div>

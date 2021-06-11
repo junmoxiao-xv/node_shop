@@ -12,12 +12,14 @@ var aboutRouter = require('./routes/about');
 var cartRouter = require('./routes/cart');
 var checkoutRouter = require('./routes/checkout');
 var contactRouter = require('./routes/contact');
-// var shopsingleRouter = require('./routes/shopsingle');
+var shopsingleRouter = require('./routes/shopsingle');
 var shopRouter = require('./routes/shop');
 var thankyouRouter = require('./routes/thankyou');
 var tablesRouter = require('./routes/tables');
+var tables2Router = require('./routes/tables2');
 var adloginRouter = require('./routes/adlogin');
 var adregisterRouter = require('./routes/adregister');
+var regionRouter = require('./routes/region');
 
 var User = require('./routes/bean/user');
 const { Router } = require('express');
@@ -59,12 +61,14 @@ app.use('/about', aboutRouter);
 app.use('/cart', cartRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/contact', contactRouter);
-// app.use('/shopsingle', shopsingleRouter);
 app.use('/shop', shopRouter);
 app.use('/thankyou', thankyouRouter);
 app.use('/tables',tablesRouter);
 app.use('/adlogin',adloginRouter);
 app.use('/adregister',adregisterRouter);
+app.use('/region',regionRouter);
+app.use('/shopsingle',shopsingleRouter);
+app.use('/tables2',tables2Router);
 
 
 // catch 404 and forward to error handler

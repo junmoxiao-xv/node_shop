@@ -37,7 +37,12 @@ router.get('/', function (req, res) {
 
 //商品详情
 router.get('/:id', (req, res) => {
-  connection.query(show_sql + ' WHERE product.id!=' + req.params.id + ' LIMIT 5', (err, result, fields) => {
+  connection.query(show_sql, (err, result, fields) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      data = result;
+      connection.query(show_sql + ' WHERE product.id!=' + req.params.id + ' LIMIT 5', (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
@@ -52,7 +57,9 @@ router.get('/:id', (req, res) => {
       }
     }
   });
-
+    }
+  });
+  
 });
 
 //搜索框搜索
@@ -147,7 +154,6 @@ router.post('/add/:id', (req, res) => {
       }
     })
   }
-
 });
 
 module.exports = router;

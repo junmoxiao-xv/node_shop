@@ -14,12 +14,12 @@ router.get('/', function (req, res) {
     if (err) {
       console.log(err.message);
     } else {
-      data = JSON.parse(JSON.stringify(result));
+      data = result;
       connection.query('SELECT IFNULL(SUM(price*amount),0) total_prices FROM product INNER JOIN cart ON product.id=cart.product_id AND user_id=' + user.id, (err, result, fields) => {
         if (err) {
           console.log(err.message);
         } else {
-          row = JSON.parse(JSON.stringify(result));
+          row = result;
           res.render('cart', {
             list: data,
             total_prices: row[0].total_prices
