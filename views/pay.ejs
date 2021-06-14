@@ -1,7 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -23,31 +19,15 @@ Author URL: http://w3layouts.com
 	<section class="w3l-login">
 		<div class="overlay">
 			<div class="wrapper">
-				<div class="logo">
-					<a class="brand-logo">Snow login form</a>
-				</div>
 				<div class="form-section">
-					<h3>Login</h3>
+					<h3>confirm the order</h3>
 					<h6>To continue with Us</h6>
-					<form action="/login" method="post" class="signin-form">
-						<div class="form-input">
-							<input type="text" name="name" placeholder="Username" required="" autofocus>
-						</div>
+					<form action="/pay" method="post" class="signin-form">
 						<div class="form-input">
 							<input type="password" name="password" placeholder="Password" required="">
-							
 						</div>
-						<% if(message){ %>
-							<p style="color: red; font-size: small;"> <%= message %> </p>
-						<% } %>
-						<!-- <label class="check-remaind">
-							<input type="checkbox">
-							<span class="checkmark"></span>
-							<p class="remember">Remember me</p>
-						</label> -->
-						<button type="submit" class="btn btn-primary theme-button mt-4">Log in</button>
+						<button type="submit" class="btn btn-primary theme-button mt-4">confirm</button>
 					</form>
-					<p class="signup">Don’t have account yet? <a href="/register" target="_self" class="signuplink">Sign Up</a></p>
 				</div>
 			</div>
 		</div>
@@ -55,8 +35,9 @@ Author URL: http://w3layouts.com
 		<div id='stars2'></div>
 		<div id='stars3'></div>
 	</section>
-
-	<!-- /login form -->
 </body>
+<script>
+    alert('请输入密码确认支付');
+</script>
 
 </html>

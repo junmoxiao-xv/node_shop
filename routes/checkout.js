@@ -2,6 +2,9 @@ var express = require('express');
 const session = require('express-session');
 const connection = require('./conmysql');
 var router = express.Router();
+var sd = require('silly-datetime');
+
+let time = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
 
 
 router.get('/', function (req, res) {
@@ -32,18 +35,18 @@ router.get('/', function (req, res) {
 
 router.post('/', (req, res) => {
   let user = req.session.user;
-  connection.query('UPDATE address SET user_id=?,address=?,phone=?,fname=? WHERE id=1', [user.id, req.body.address, req.body.phone, req.body.fname], (err, result, fields) => {
+  connection.query('UPDATE address SET user_id=?,address=?,phone=?,fname=? WHERE id=1', [user.id, req.query.address, req.query.phone, req.query.fname], (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
       for(var i = 0;i<data2.length;i++){
         let pid = data2[i].pid;
         let amount = data2[i].amount;
-        connection.query('INSERT INTO buyform (user_id,address_id,product_id,amount,remark) VALUES (?,?,?,?,?)',[user.id,1,pid,amount,req.body.ordernotes],(err, result, fields) => {
+        connection.query('INSERT INTO buyform (user_id,address_id,product_id,amount,remark,create_time) VALUES (?,?,?,?,?,?)',[user.id,1,pid,amount,req.query.ordernotes,time],(err, result, fields) => {
         if (err) {
           console.log(err.message);
-        } else {
-          
+        }else{
+          res.render('pay')
         }
       })
       }

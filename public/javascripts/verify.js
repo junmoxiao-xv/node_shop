@@ -40,10 +40,3 @@ function validatePhone() {
         document.getElementById("phone").setCustomValidity('');
     }
 }
-
-// function saveForm(){
-//     $('#regForm').ajaxSubmit(function(){
-//         alert(1);
-//     });
-//     return false;
-// }

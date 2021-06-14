@@ -109,7 +109,7 @@
         </thead>
         <tbody>
           <% for(var i=0 ;i < list.length; i++){ %>
-            <tr datakey=<%=list[i].id %> >
+            <tr datakey=<%=list[i].id %>>
               <td>
                 <%=list[i].id %>
               </td>
@@ -132,11 +132,11 @@
                 <%=list[i].address %>
               </td>
               <td>
-                <%=list[i].stutas %>
+                <%=list[i].status %>
               </td>
               <td>
                 <button class="del">删除</button>
-                <button>确认收货</button>
+                <button class="receipt" status=<%=list[i].status %>>确认收货</button>
               </td>
             </tr>
             <%} %>
@@ -166,6 +166,7 @@
   <script src="/javascripts/jquery.magnific-popup.min.js"></script>
   <script src="/javascripts/aos.js"></script>
   <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/contact.js"></script>
 
 </body>
 

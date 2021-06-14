@@ -20,6 +20,7 @@ var tables2Router = require('./routes/tables2');
 var adloginRouter = require('./routes/adlogin');
 var adregisterRouter = require('./routes/adregister');
 var regionRouter = require('./routes/region');
+var payRouter = require('./routes/pay');
 
 var User = require('./routes/bean/user');
 const { Router } = require('express');
@@ -46,7 +47,11 @@ app.use((req,res,next)=>{
   let url=req.originalUrl
       if (url == "/tables" && !req.session.admin) {
           return res.redirect("/adlogin");
+      }else if(url == "/tables2" && !req.session.admin){
+        return res.redirect("/adlogin");
       }else if(url == "/cart" && !req.session.user){
+        return res.redirect("/login");
+      }else if(url == "/pay" && !req.session.user){
         return res.redirect("/login");
       }
       next();
@@ -69,7 +74,7 @@ app.use('/adregister',adregisterRouter);
 app.use('/region',regionRouter);
 app.use('/shopsingle',shopsingleRouter);
 app.use('/tables2',tables2Router);
-
+app.use('/pay',payRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

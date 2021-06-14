@@ -125,7 +125,6 @@
                           </tr>
                     </tbody>
                   </table>
-                  <form action="/checkout" method="POST">
                     <label for="c_fname" class="text-black">收货人<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="c_fname" name="fname">
                     <label for="province" class="text-black">省<span class="text-danger">*</span></label>
@@ -137,15 +136,13 @@
                     <label for="c_address" class="text-black">地址 <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="c_address" name="address" placeholder="街道地址">
                     <label for="c_diff_phone" class="text-black">电话号码<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_diff_phone" name="phone" placeholder="电话号码">
+                    <input id="phone" type="text" class="form-control"  name="phone" placeholder="电话号码">
                     <label for="c_order_notes" class="text-black">订单备注</label>
                     <textarea name="ordernotes" id="c_order_notes" cols="30" rows="5" class="form-control"
                       placeholder="选填，请先和商家协商一致"></textarea>
                     <div class="form-group">
-                      <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">提交订单</button>
+                      <button class="btn btn-primary btn-lg py-3 btn-block"  id="submit">提交订单</button>
                     </div>
-
-                  </form>
 
                 </div>
               </div>
@@ -177,6 +174,8 @@
   <script src="/javascripts/aos.js"></script>
   <script src="/javascripts/location.js"></script>
   <script src="/javascripts/main.js"></script>
+  <script src="/javascripts/address.js"></script>
+
 
 </body>
 

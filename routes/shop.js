@@ -21,7 +21,8 @@ connection.query(catalog_sql, (err, result, fields) => {
 
 //数据展示
 router.get('/', function (req, res) {
-  connection.query(show_sql, (err, result, fields) => {
+  let  page
+  connection.query(show_sql+' ORDER BY product.id DESC', (err, result, fields) => {
     if (err) {
       console.log(err.message);
     } else {
