@@ -15,7 +15,7 @@ connection.query(catalog_sql, (err, result, fields) => {
   if (err) {
     console.log(err.message);
   } else {
-    data2 = JSON.parse(JSON.stringify(result));
+    data2 = result;
   }
 });
 

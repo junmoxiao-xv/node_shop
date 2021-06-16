@@ -51,7 +51,6 @@
                   <li>
                     <a href="/cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
                     </a>
                   </li>
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
@@ -146,21 +145,6 @@
                 </div>
                 <%} %>
             </div>
-            <div class="row" data-aos="fade-up">
-              <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
@@ -168,8 +152,10 @@
               <h3 class="mb-3 h6 text-uppercase text-black d-block">分类目录</h3>
               <ul class="list-unstyled mb-0">
                 <% for(var i=0 ;i < list2.length; i++){ %>
-                <li class="mb-1"><a href="/shop/category/<%=list2[i].id %>" class="d-flex"><span><%=list2[i].category_name %></span></a></li>
-                <%} %>
+                  <li class="mb-1"><a href="/shop/category/<%=list2[i].id %>" class="d-flex"><span>
+                        <%=list2[i].category_name %>
+                      </span></a></li>
+                  <%} %>
               </ul>
             </div>
           </div>
@@ -242,7 +228,7 @@
     <script src="/javascripts/jquery.magnific-popup.min.js"></script>
     <script src="/javascripts/aos.js"></script>
     <script src="/javascripts/main.js"></script>
-
+    
 </body>
 
 </html>

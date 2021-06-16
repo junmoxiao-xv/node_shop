@@ -82,3 +82,16 @@ $(function () {
 
     })
 })
+
+//结算
+$(function () {
+    $('#close').click(function () {
+        let total_prices = parseInt($('#total_price').html());
+        console.log($('#total_price').html());
+        if (total_prices == 0) {
+            alert('购物车为空，请先添加商品再进行结算');
+        }else{
+            window.location.href='/checkout';
+        }
+    })
+})

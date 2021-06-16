@@ -55,4 +55,25 @@ router.post('/receipt/:id', (req, res) => {
   })
 });
 
+router.post('/search', (req, res) => {
+  let user = req.session.user;
+  product_name = req.body.product_name;
+  let sql = 'SELECT buyform.id,product_img,product_name,amount, amount*price total_price,fname,address,status FROM product INNER JOIN address INNER JOIN buyform ON buyform.product_id=product.id AND buyform.user_id =' + user.id;
+  if (product_name) {
+    sql += " WHERE product_name like'%" + product_name + "%' ";
+  }else{
+    sql += ' ORDER BY buyform.id DESC';
+  }
+  connection.query(sql, (err, result, fields) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      res.render('contact', {
+        list: result,
+        obj: data2[0].amount
+      });
+    }
+  })
+});
+
 module.exports = router;

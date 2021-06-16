@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
         if (err) {
           console.log(err.message);
         }else{
-          res.render('pay')
+          res.render('pay',{message:''})
         }
       })
       }

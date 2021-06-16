@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 15/06/2021 01:07:12
+ Date: 17/06/2021 01:32:15
 */
 
 SET NAMES utf8mb4;
@@ -33,14 +33,13 @@ CREATE TABLE `address`  (
   `phone` bigint(0) NULL DEFAULT NULL,
   `fname` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id`) USING BTREE,
-  CONSTRAINT `address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  INDEX `user_id`(`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of address
 -- ----------------------------
-INSERT INTO `address` VALUES (1, 1, '江西省', '吉安市', '吉州区', '斗罗大陆', '2021-06-08 16:30:12', NULL, 17879681600, 'xyj');
+INSERT INTO `address` VALUES (1, 1, '江西省', '吉安市', '吉州区', '斗罗大陆', '2021-06-08 16:30:12', NULL, 17879681696, '许永健');
 
 -- ----------------------------
 -- Table structure for admin
@@ -80,18 +79,17 @@ CREATE TABLE `buyform`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `address_id`(`address_id`) USING BTREE,
-  INDEX `product_id`(`product_id`) USING BTREE,
-  CONSTRAINT `buyform_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `buyform_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `buyform_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `product_id`(`product_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of buyform
 -- ----------------------------
 INSERT INTO `buyform` VALUES (11, 1, 1, 3, '2021-06-15 00:15:50', NULL, 3, 'bbb', '已收货');
-INSERT INTO `buyform` VALUES (12, 1, 1, 6, '2021-06-15 00:15:53', NULL, 1, 'bbb', '已收货');
 INSERT INTO `buyform` VALUES (44, 1, 1, 1, '2021-06-15 00:15:55', NULL, 3, 'ggggggg', '已收货');
+INSERT INTO `buyform` VALUES (53, 1, 1, 26, '2021-06-16 16:30:32', NULL, 2, 'aaa', '已收货');
+INSERT INTO `buyform` VALUES (54, 1, 1, 22, '2021-06-16 18:55:02', NULL, 2, 'aaaa', '已收货');
+INSERT INTO `buyform` VALUES (56, 1, 1, 23, '2021-06-16 22:32:02', NULL, 2, 'aaaa', '已收货');
 
 -- ----------------------------
 -- Table structure for cart
@@ -106,17 +104,15 @@ CREATE TABLE `cart`  (
   `update_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
-  INDEX `product_id`(`product_id`) USING BTREE,
-  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 134 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `product_id`(`product_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 143 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (57, 2, 9, 1, '2021-06-03 20:03:26', NULL);
 INSERT INTO `cart` VALUES (58, 2, 8, 1, '2021-06-03 20:03:26', NULL);
-INSERT INTO `cart` VALUES (133, 1, 27, 5, '2021-06-15 00:59:57', NULL);
+INSERT INTO `cart` VALUES (142, 1, 23, 2, '2021-06-16 22:32:02', NULL);
 
 -- ----------------------------
 -- Table structure for classify
@@ -179,10 +175,8 @@ CREATE TABLE `product`  (
   `update_time` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `classify_id`(`classify_id`) USING BTREE,
-  INDEX `classify2_id`(`classify2_id`) USING BTREE,
-  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`classify_id`) REFERENCES `classify` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `product_ibfk_2` FOREIGN KEY (`classify2_id`) REFERENCES `classify2` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `classify2_id`(`classify2_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -213,7 +207,7 @@ INSERT INTO `product` VALUES (23, 1, 2, '用心爱你', '/images/9010855.jpg', '
 INSERT INTO `product` VALUES (24, 3, 3, '妈，辛苦啦', '/images/9012504.jpg', ' 妈妈是超人', '[2021母亲节新品] 玫红色康乃馨16枝、粉色洋桔梗5枝、尤加利10枝', 218.00, 198, 232, '2021-06-13 00:27:16', NULL);
 INSERT INTO `product` VALUES (25, 4, 2, '一鹿(路)有你', '/images/1073264.jpg', '一路有你的陪伴', '[创意 永生花礼盒] 永生花礼盒', 298.00, 498, 1810, '2021-06-13 10:28:19', NULL);
 INSERT INTO `product` VALUES (26, 4, 3, '花好月圆', '/images/1073276.jpg', '但愿人长久', '[畅销礼物 节日定制款] 精选进口多色永生康乃馨台灯', 298.00, 544, 1324, '2021-06-13 10:30:18', NULL);
-INSERT INTO `product` VALUES (27, 4, 2, '满月', '/images/1073263.jpg', '星河滚烫，你是人间理想', '[创意永生花台灯] 永生花台灯', 398.00, 231, 769, '2021-06-13 10:33:01', NULL);
+INSERT INTO `product` VALUES (27, 4, 2, '满月', '/images/1073263.jpg', '星河滚烫，你是人间理想', '[创意永生花台灯] 永生花台灯', 399.00, 231, 769, '2021-06-13 10:33:01', '2021-06-17 01:21:34');
 
 -- ----------------------------
 -- Table structure for users
@@ -230,15 +224,12 @@ CREATE TABLE `users`  (
   `updata_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'xyj', '99446f49c2cdbe5c10c3ed1db74bcb16', '男', 17879681696, '1942049754@qq.com', '2021-05-22 20:48:13', NULL);
 INSERT INTO `users` VALUES (2, 'xyl', 'e10adc3949ba59abbe56e057f20f883e', '女', 13611292622, '2904672234@qq.com', '2021-05-22 20:48:16', NULL);
-INSERT INTO `users` VALUES (3, 'sss', 'e10adc3949ba59abbe56e057f20f883e', '男', 17770706396, '1942049754@qq.com', '2021-05-22 20:48:18', NULL);
-INSERT INTO `users` VALUES (4, 'xyk', 'e10adc3949ba59abbe56e057f20f883e', '男', 17879681600, '3116005129@mail2.gdut.edu.cn', '2021-05-22 20:48:21', NULL);
-INSERT INTO `users` VALUES (5, 'we', 'e10adc3949ba59abbe56e057f20f883e', '男', 17879681666, '2904672234@qq.com', '2021-05-22 20:48:23', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

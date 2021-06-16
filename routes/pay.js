@@ -4,7 +4,7 @@ var router = express.Router();
 var crypto = require('crypto');
 
 router.get('/', function(req, res) {
-  res.render('pay');
+  res.render('pay',{message:''});
 });
 
 router.post('/', (req, res) => {
@@ -19,7 +19,9 @@ router.post('/', (req, res) => {
         return;
       }
       if(result[0]){
-          res.redirect('thankyou')
+          res.redirect('thankyou');
+      }else{
+        res.render('pay',{message:'密码错误'})
       }
     });
   });
