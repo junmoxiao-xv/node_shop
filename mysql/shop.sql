@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 17/06/2021 01:32:15
+ Date: 18/06/2021 09:32:02
 */
 
 SET NAMES utf8mb4;
@@ -53,7 +53,7 @@ CREATE TABLE `admin`  (
   `update_time` datetime(0) NULL DEFAULT NULL,
   `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin
@@ -80,16 +80,14 @@ CREATE TABLE `buyform`  (
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `address_id`(`address_id`) USING BTREE,
   INDEX `product_id`(`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of buyform
 -- ----------------------------
-INSERT INTO `buyform` VALUES (11, 1, 1, 3, '2021-06-15 00:15:50', NULL, 3, 'bbb', '已收货');
-INSERT INTO `buyform` VALUES (44, 1, 1, 1, '2021-06-15 00:15:55', NULL, 3, 'ggggggg', '已收货');
 INSERT INTO `buyform` VALUES (53, 1, 1, 26, '2021-06-16 16:30:32', NULL, 2, 'aaa', '已收货');
-INSERT INTO `buyform` VALUES (54, 1, 1, 22, '2021-06-16 18:55:02', NULL, 2, 'aaaa', '已收货');
-INSERT INTO `buyform` VALUES (56, 1, 1, 23, '2021-06-16 22:32:02', NULL, 2, 'aaaa', '已收货');
+INSERT INTO `buyform` VALUES (67, 1, 1, 20, '2021-06-18 08:10:13', NULL, 5, 'aaaa', '已收货');
+INSERT INTO `buyform` VALUES (68, 1, 1, 21, '2021-06-18 08:10:13', NULL, 4, 'aaaa', '已收货');
 
 -- ----------------------------
 -- Table structure for cart
@@ -105,14 +103,14 @@ CREATE TABLE `cart`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `product_id`(`product_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 143 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 154 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (57, 2, 9, 1, '2021-06-03 20:03:26', NULL);
 INSERT INTO `cart` VALUES (58, 2, 8, 1, '2021-06-03 20:03:26', NULL);
-INSERT INTO `cart` VALUES (142, 1, 23, 2, '2021-06-16 22:32:02', NULL);
+INSERT INTO `cart` VALUES (154, 1, 19, 2, '2021-06-18 09:28:18', NULL);
 
 -- ----------------------------
 -- Table structure for classify
@@ -176,7 +174,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `classify_id`(`classify_id`) USING BTREE,
   INDEX `classify2_id`(`classify2_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -224,7 +222,7 @@ CREATE TABLE `users`  (
   `updata_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
